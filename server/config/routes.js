@@ -64,17 +64,8 @@ function staticDirServer(prefix, dirFn) {
 module.exports.routes = {
   'GET /api/config': 'config/show',
 
-  'GET /api/terms/:type': 'terms/show',
-
-  'GET /api/webhooks': 'webhooks/index',
-  'POST /api/webhooks': 'webhooks/create',
-  'PATCH /api/webhooks/:id': 'webhooks/update',
-  'DELETE /api/webhooks/:id': 'webhooks/delete',
-
   'POST /api/access-tokens': 'access-tokens/create',
   'POST /api/access-tokens/exchange-with-oidc': 'access-tokens/exchange-with-oidc',
-  'POST /api/access-tokens/accept-terms': 'access-tokens/accept-terms',
-  'POST /api/access-tokens/revoke-pending-token': 'access-tokens/revoke-pending-token',
   'DELETE /api/access-tokens/me': 'access-tokens/delete',
 
   'GET /api/users': 'users/index',
@@ -95,6 +86,12 @@ module.exports.routes = {
 
   'POST /api/projects/:projectId/project-managers': 'project-managers/create',
   'DELETE /api/project-managers/:id': 'project-managers/delete',
+
+  'GET /api/projects/:projectId/project-memberships': 'project-memberships/index',
+  'POST /api/projects/:projectId/project-memberships': 'project-memberships/create',
+  'PATCH /api/project-memberships/:id': 'project-memberships/update',
+  'DELETE /api/project-memberships/:id': 'project-memberships/delete',
+  'POST /api/projects/:id/transfer-ownership': 'projects/transfer-ownership',
 
   'POST /api/projects/:projectId/background-images': 'background-images/create',
   'DELETE /api/background-images/:id': 'background-images/delete',
@@ -237,7 +234,9 @@ module.exports.routes = {
   },
 
   'GET /*': {
-    view: 'index',
+    fn: (req, res) => {
+      return res.sendFile(path.join(__dirname, '../public/index.html'));
+    },
     skipAssets: true,
   },
 };

@@ -35471,7 +35471,7 @@ a.ui.nag {
 
 /* Arrow */
 
-[data-position ~ ="bottom"][data-tooltip]:before {
+[data-position~="bottom"][data-tooltip]:before {
   background: #ffffff;
   -webkit-box-shadow: -1px -1px 0px 0px #bababc;
   box-shadow: -1px -1px 0px 0px #bababc;
@@ -35489,13 +35489,13 @@ a.ui.nag {
   box-shadow: -1px 1px 0px 0px #bababc;
 }
 
-[data-position ~ ="top"][data-tooltip]:before {
+[data-position~="top"][data-tooltip]:before {
   background: #ffffff;
 }
 
 /* Inverted Arrow Color */
 
-[data-inverted][data-position ~ ="bottom"][data-tooltip]:before {
+[data-inverted][data-position~="bottom"][data-tooltip]:before {
   background: #1b1c1d;
   -webkit-box-shadow: -1px -1px 0px 0px #bababc;
   box-shadow: -1px -1px 0px 0px #bababc;
@@ -35513,16 +35513,16 @@ a.ui.nag {
   box-shadow: -1px 1px 0px 0px #bababc;
 }
 
-[data-inverted][data-position ~ ="top"][data-tooltip]:before {
+[data-inverted][data-position~="top"][data-tooltip]:before {
   background: #1b1c1d;
 }
 
-[data-position ~ ="bottom"][data-tooltip]:before {
+[data-position~="bottom"][data-tooltip]:before {
   -webkit-transform-origin: center bottom;
   transform-origin: center bottom;
 }
 
-[data-position ~ ="bottom"][data-tooltip]:after {
+[data-position~="bottom"][data-tooltip]:after {
   -webkit-transform-origin: center top;
   transform-origin: center top;
 }
